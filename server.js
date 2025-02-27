@@ -2,18 +2,21 @@ import bodyParser from "body-parser";
 import express from "express";
 import pg from "pg";
 import axios from "axios";
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const db = new pg.Client({
-    user: "postgres",
+    user: process.env.DB_USER,
     host: "localhost",
-    database: "News Aggregator",
-    password: "LbifdfdfdLbifdmfl36",
-    port: 5432,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
   });
 
 db.connect();
 
-const API_KEY = "b404983755ee4568a84261634a9aea92";
+const API_KEY = process.env.API_KEY;
 const API_URL = "https://newsapi.org/v2/";
 const app = express();
 const PORT = process.env.PORT || 3000;
