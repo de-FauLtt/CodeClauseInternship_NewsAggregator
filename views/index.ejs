@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Aggregator</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="main-container">
+        <%- include("partials/header.ejs") %>
+        <div class="content-div">
+            <% if (locals.articles) { %>
+                <% articles.forEach((article) => { %>
+                    <div class="article">
+                        <h3><%= article.title %></h3>
+                        <% if (article.urlToImage) { %>
+                            <img src="<%= article.urlToImage %>" alt="Article Image">
+                        <% } %>
+                        <p><%= article.description %> <a href="<%= article.url %>" target="_blank">Read more</a></p>
+                        <p><strong>Source:</strong> <%= article.source.name ? article.source.name : "Unkown" %></p>
+                        <p><strong>Author:</strong> <%= article.author ? article.author : "Unknown" %></p>
+                        <p><strong>Published At:</strong> <%= new Date(article.publishedAt).toLocaleString() %></p>
+                    </div>
+                <% }) %>
+            <% } else { %>
+                <p>No articles available.</p>
+            <% } %>
+        </div>
+    </div>
+    <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</body>
+</html>

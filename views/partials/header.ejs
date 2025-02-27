@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="header-bar">
+        <div id="logo"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform: ;msFilter:;"><path d="M19.875 3H4.125C2.953 3 2 3.897 2 5v14c0 1.103.953 2 2.125 2h15.75C21.047 21 22 20.103 22 19V5c0-1.103-.953-2-2.125-2zm0 16H4.125c-.057 0-.096-.016-.113-.016-.007 0-.011.002-.012.008L3.988 5.046c.007-.01.052-.046.137-.046h15.75c.079.001.122.028.125.008l.012 13.946c-.007.01-.052.046-.137.046z"></path><path d="M6 7h6v6H6zm7 8H6v2h12v-2h-4zm1-4h4v2h-4zm0-4h4v2h-4z"></path></svg> News Aggregator </div>
+        <div id="search-bar"><form action="/search" method="POST"><input type="text" name="search" id="search" placeholder="Search"></form></div>
+        <div id="all-news"><a href="/">All News</a></div>
+        <div id="headlines"><a href="/headlines">Top Headlines</a></div>
+        <div class="dropdown" id="dropdown1">
+            <button class="dropdown-btn">
+                Category
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6"></path>
+                </svg>
+            </button>
+            <div class="dropdown-content" id="dropdown-menu1">
+                <a href="/category?option=business">Business</a>
+                <a href="/category?option=entertainment">Entertainment</a>
+                <a href="/category?option=general">General</a>
+                <a href="/category?option=health">Health</a>
+                <a href="/category?option=science">Science</a>
+                <a href="/category?option=sports">Sports</a>
+                <a href="/category?option=technology">Technology</a>
+            </div>
+        </div>
+        <div class="dropdown" id="dropdown2">
+            <button class="dropdown-btn">
+                Country
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6 6-6"></path>
+                </svg>
+            </button>
+            <div class="dropdown-content" id="dropdown-menu2">
+                <% if (Array.isArray(country_names) && country_names.length > 0) { %>
+                    <% country_names.forEach((country_name) => { %>
+                        <a href="/country?option=<%= country_name.country_name %>"> <%= country_name.country_name%></a>
+                    <% }) %>
+                <% } else { %>
+                    <p>No countries available.</p>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

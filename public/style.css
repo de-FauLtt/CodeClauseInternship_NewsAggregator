@@ -1,0 +1,200 @@
+@font-face {
+    font-family: "Termina-Black";
+    src: url("./TerminaTest-Black.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Termina-Bold";
+    src: url("./TerminaTest-Bold.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Termina-Medium";
+    src: url("./TerminaTest-Medium.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.main-container {
+    display: grid;
+    grid-template-rows: 64px auto;
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+    width: 100%;
+    top:0;
+    left:0;
+    position: absolute;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    color: #333;
+    font-size: 14px;
+}
+
+.header-bar {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(194, 246, 255);
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-family: "Termina-Bold";
+    color: inherit;
+    font-size: inherit;
+}
+
+#logo {
+    display: flex;
+    align-items: center;  
+    gap: 10px; 
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "Termina-Black";
+    color: inherit;
+}
+
+#search {
+    border-width: 1px;
+    background-color: #f8f1e3;
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    padding: 4px 35px;
+    font-size: medium;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="black"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: 8px center;
+    background-size: 20px;
+    outline: none; 
+}
+
+.dropdown-btn {
+    background-color: rgb(194, 246, 255);
+    border: 0px;
+    color: #333;
+    font-family: "Termina-Bold";
+    font-size: 14px;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    outline: none;
+}
+.dropdown-btn svg {
+    width: 12px;
+    height: 12px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    font-family: "Inter", "Segoe UI", Arial, sans-serif;
+    display: none;
+    position: absolute;
+    background-color: #f8f1e3;
+    border-radius: 0px;
+    border: 1px solid black;
+    padding: 8px;
+    min-width: 150px;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    visibility: hidden;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    text-decoration: underline;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 2px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background: black;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb:hover {
+    background: black;
+    border-radius: 10px;
+}
+
+.content-div {
+    background-color: #9ae1ef;
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 100%;
+    width: 100%;
+}
+
+.article {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-around;
+    color: #333;
+    background-color: #f8f1e3;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 10px 20px;
+    box-shadow: -5px 5px 0px black;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.article img {
+    width: 100%;
+}
+
+.article:hover {
+    transform: translateY(-5px); /* Moves the whole div up */
+    box-shadow: -10px 10px 0px black; /* Expands shadow */
+}
+
+.article * {
+    transform: none;
+}
+
+#all-news a{
+    text-decoration: none;
+    color: #333;
+}
+
+#headlines a{
+    text-decoration: none;
+    color: #333;
+}
